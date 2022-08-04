@@ -1,0 +1,37 @@
+@import '../../assets/scss/main.scss';
+
+header {
+	display: flex;
+	gap: 16px;
+	width: 100%;
+	height: auto;
+	background-color: #ffdb15;
+	padding: 24px;
+
+	.main-logo {
+		width: 39px;
+		height: 28px;
+	}
+
+	.main-input-container {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 32px;
+		padding-left: 16px;
+		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+		background-color: #fff;
+
+		input {
+			width: 100%;
+			border: none;
+		}
+
+		&__button {
+			width: 46px;
+			height: auto;
+			border: none;
+			background-color: red;
+		}
+	}
+}
