@@ -25,13 +25,18 @@ header {
 		input {
 			width: 100%;
 			border: none;
+			outline: none;
 		}
 
 		&__button {
 			width: 46px;
 			height: auto;
 			border: none;
-			background-color: red;
+			background-image: url("data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8'%3f%3e %3csvg xmlns='http://www.w3.org/2000/svg' id='Outline' viewBox='0 0 24 24' fill='%23adadad' width='512' height='512'%3e%3cpath d='M23.707%2c22.293l-5.969-5.969a10.016%2c10.016%2c0%2c1%2c0-1.414%2c1.414l5.969%2c5.969a1%2c1%2c0%2c0%2c0%2c1.414-1.414ZM10%2c18a8%2c8%2c0%2c1%2c1%2c8-8A8.009%2c8.009%2c0%2c0%2c1%2c10%2c18Z'/%3e%3c/svg%3e");
+			background-repeat: no-repeat;
+			background-size: 50%;
+			background-position: center;
+			cursor: pointer;
 		}
 	}
 }
