@@ -6,17 +6,19 @@ export default function SearchBox() {
 	return (
 		<>
 			<header>
-				<img
-					className='main-logo'
-					src={meliLogo}
-					alt='main-logo'
-				/>
-				<div className='main-input-container'>
-					<input
-						type='text'
-						placeholder='Nunca dejes de buscar'
+				<div className='header-container'>
+					<img
+						className='main-logo'
+						src={meliLogo}
+						alt='main-logo'
 					/>
-					<button className='main-input-container__button'></button>
+					<div className='main-input-container'>
+						<input
+							type='text'
+							placeholder='Nunca dejes de buscar'
+						/>
+						<button className='main-input-container__button'></button>
+					</div>
 				</div>
 			</header>
 		</>

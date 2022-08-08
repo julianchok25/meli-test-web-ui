@@ -14,60 +14,21 @@ $brownish-grey: #666666;
 $brownish-grey-two: #5c5c5c;
 $brown-grey-three: #adadad;
 $light-blue-grey: #c4d4e3;
-$eggshell: #e2fddd;
-$lightish-green: #7ad468;
-$grey-blue: #6680ad;
-$marine-blue: #002c76;
 $darkish-blue: #0040a8;
-$macaroni-and-cheese: #fdc130;
-$strawberry: #e33031;
-$orange: #fee7cf;
-$mango: #f69b31;
+$main-product: #ffdb15;
+$gray93: #ededed;
 
 /* breakpoints */
 $breakpoint-mobile: 360px;
 $breakpoint-tablet: 600px;
 $breakpoint-desktop: 1100px;
 
-/* Import Fonts */
-@font-face {
-	font-family: 'Roboto-Regular';
-	src: url('../fonts/roboto/Roboto-Regular.ttf');
-}
-
-@font-face {
-	font-family: 'Roboto-Bold';
-	src: url('../fonts/roboto/Roboto-Bold.ttf');
-}
-
-@font-face {
-	font-family: 'Roboto-Medium';
-	src: url('../fonts/roboto/Roboto-Medium.ttf');
-}
-
-@font-face {
-	font-family: 'Montserrat-SemiBold';
-	src: url('../fonts/montserrat/Montserrat-Regular.ttf');
-}
-
-@font-face {
-	font-family: 'Montserrat-SemiBold';
-	src: url('../fonts/montserrat/Montserrat-SemiBold.ttf');
-}
-
-/* Set variable Fonts */
-$RobotoLight: Roboto-Light;
-$RobotoRegular: Roboto-Regular;
-$RobotoMedium: Roboto-Medium;
-$RobotoBold: Roboto-Bold;
-$MontserratRegular: Montserrat-Regular;
-$MontserratSemiBold: Montserrat-SemiBold;
-
 /* Reset values */
 html {
 	height: 100%;
 	width: 100%;
 	font-size: 62.5%;
+	background-color: $gray93;
 }
 
 * {

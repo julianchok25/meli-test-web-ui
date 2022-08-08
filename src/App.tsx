@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import SearchBox from './components/SearchBox/SearchBox';
+import ProductCard from './components/ProductCard/ProductCard';
 import './App.scss';
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
 		<div className='App'>
 			<SearchBox />
+			<ProductCard />
 		</div>
 	);
 }
