@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import './SearchBox.scss';
 import meliLogo from '../../assets/images/logo-small.png';
 
-export default function SearchBox() {
+export default function SearchBox(props: any) {
+	const { onSearch } = props;
 	const [search, setSearch] = useState('');
 
-	const searcher = (e: React.ChangeEvent<HTMLInputElement>) => {
-		console.log(e.target);
+	const searcher = (e: React.ChangeEvent<HTMLInputElement>) =>
 		setSearch(e.target.value);
+
+	const handleSubmittedForm = (
+		e: React.ChangeEvent<HTMLFormElement>
+	) => {
+		e.preventDefault();
+		onSearch(search);
 	};
 
 	return (
@@ -17,6 +23,7 @@ export default function SearchBox() {
 					action='/items'
 					id='form-inputs'
 					className='header-container'
+					onSubmit={handleSubmittedForm}
 				>
 					<img
 						className='main-logo'
@@ -28,6 +35,7 @@ export default function SearchBox() {
 							type='text'
 							placeholder='Nunca dejes de buscar'
 							onChange={searcher}
+							name='search'
 							value={search}
 						/>
 						<button

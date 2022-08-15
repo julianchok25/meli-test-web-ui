@@ -7,7 +7,6 @@ export default function getProductsByQueryParam(
 
 	return fetch(apiUrl)
 		.then((res) => res.json())
-		.then((response) => response)
 		.catch((err) => {
 			console.log(err);
 		});
