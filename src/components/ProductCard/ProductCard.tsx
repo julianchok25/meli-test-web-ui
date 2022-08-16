@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { getProductsByQueryParam } from '../../services/product.service';
 import { ItemModel } from '../../models/product.model';
 import './ProductCard.scss';
 
 export default function ProductCard(props: { item: string }) {
 	const { item } = props;
+	const [params, setParams] = useSearchParams();
 
 	const arrItmes: Array<ItemModel> = [];
 	const arrCategories: Array<string> = [];
@@ -17,13 +18,13 @@ export default function ProductCard(props: { item: string }) {
 	useEffect(
 		function () {
 			setLoading(true);
-			getProductsByQueryParam(item || 'gafas').then(
-				(products) => {
-					setCategories(products.categories);
-					setItems(products.items.slice(0, 4));
-					setLoading(false);
-				}
-			);
+			setParams({ search: item });
+
+			getProductsByQueryParam(item).then((products) => {
+				setCategories(products.categories);
+				setItems(products.items.slice(0, 4));
+				setLoading(false);
+			});
 		},
 		[item]
 	);

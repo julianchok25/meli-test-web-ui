@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import meliLogo from '../../assets/images/logo-small.png';
 import './SearchBox.scss';
 
 export default function SearchBox(props: any) {
 	const { onSearch } = props;
 	const [search, setSearch] = useState('');
+	let navigate = useNavigate();
 
 	const searcher = (e: React.ChangeEvent<HTMLInputElement>) =>
 		setSearch(e.target.value);
@@ -15,6 +16,7 @@ export default function SearchBox(props: any) {
 	) => {
 		e.preventDefault();
 		onSearch(search);
+		navigate('/items', { replace: true });
 	};
 
 	return (

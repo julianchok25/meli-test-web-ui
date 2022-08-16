@@ -8,9 +8,7 @@ import './App.scss';
 function App() {
 	const [text, setText] = useState('');
 
-	const onSearch = (search: string) => {
-		setText(search);
-	};
+	const onSearch = (search: string) => setText(search);
 
 	return (
 		<div className='App'>
