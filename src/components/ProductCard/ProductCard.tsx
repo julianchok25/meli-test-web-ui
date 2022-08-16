@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
-import getProductsByQueryParam from '../../services/product.service';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getProductsByQueryParam } from '../../services/product.service';
 import { ItemModel } from '../../models/product.model';
 import './ProductCard.scss';
 
@@ -34,21 +35,24 @@ export default function ProductCard(props: { item: string }) {
 			{loading && <p>..Loading</p>}
 
 			<section className='product-cards-container'>
-				{items.map((product) => (
-					<article
+				{items.map((product, index) => (
+					<Link
+						to={`/items/${product.id}`}
 						key={product.id}
-						className='product-card'
+						className='product-link'
 					>
-						<img
-							className='product-card__picture'
-							src={product.picture}
-							alt=''
-						/>
-						<div className='price-description'>
-							<p>{`$ ${product.price.amount}`}</p>
-							<p>{product.title}</p>
-						</div>
-					</article>
+						<article className='product-card'>
+							<img
+								className='product-card__picture'
+								src={product.picture}
+								alt={`${categories[0]} picture number ${index}`}
+							/>
+							<div className='price-description'>
+								<p>{`$ ${product.price.amount}`}</p>
+								<p>{product.title}</p>
+							</div>
+						</article>
+					</Link>
 				))}
 			</section>
 		</div>

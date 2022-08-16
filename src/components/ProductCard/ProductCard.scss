@@ -16,6 +16,11 @@
 		background-color: $white-one;
 		border-radius: 4px 4px 0 0;
 
+		.product-link {
+			text-decoration: none;
+			color: inherit;
+		}
+
 		.product-card {
 			display: flex;
 			padding: 20px 50px 20px 24px;
@@ -45,15 +50,11 @@
 @media screen and (min-width: $breakpoint-tablet) {
 	.products-list {
 		max-width: 640px;
-		.product-cards-container {
-		}
 	}
 }
 
 @media screen and (min-width: $breakpoint-desktop) {
 	.products-list {
 		max-width: 1200px;
-		.product-cards-container {
-		}
 	}
 }

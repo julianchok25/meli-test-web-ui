@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './SearchBox.scss';
+import { Link } from 'react-router-dom';
 import meliLogo from '../../assets/images/logo-small.png';
+import './SearchBox.scss';
 
 export default function SearchBox(props: any) {
 	const { onSearch } = props;
@@ -25,11 +26,13 @@ export default function SearchBox(props: any) {
 					className='header-container'
 					onSubmit={handleSubmittedForm}
 				>
-					<img
-						className='main-logo'
-						src={meliLogo}
-						alt='main-logo'
-					/>
+					<Link to='/'>
+						<img
+							className='main-logo'
+							src={meliLogo}
+							alt='main-logo'
+						/>
+					</Link>
 					<div className='main-input-container'>
 						<input
 							type='text'
