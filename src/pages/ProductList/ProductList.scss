@@ -7,9 +7,20 @@
 	font-weight: 400;
 
 	.breadcrumb {
+		display: flex;
+
 		padding: 16px 0;
-		font-size: 1.4rem;
-		color: $black;
+
+		&__text {
+			font-size: 1.4rem;
+			color: $black;
+
+			span {
+				display: inline-block;
+				width: 24px;
+				text-align: center;
+			}
+		}
 	}
 
 	.products-list {

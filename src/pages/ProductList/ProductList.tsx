@@ -7,20 +7,17 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 
 export default function ProductList(props: { item: string }) {
 	const { item } = props;
+	let categorySize = 0;
 
 	const [params, setParams] = useSearchParams();
 
-	const arrItmes: Array<ItemModel> = [];
-	const arrCategories: Array<string> = [];
-
-	const [items, setItems] = useState(arrItmes);
-	const [categories, setCategories] = useState(arrCategories);
+	const [items, setItems] = useState<Array<ItemModel>>([]);
+	const [categories, setCategories] = useState<Array<string>>([]);
 	const [loading, setLoading] = useState(false);
 
 	useEffect(
 		function () {
 			setLoading(true);
-
 			setParams({ search: item });
 
 			getProductsByQueryParam(item).then((products) => {
@@ -31,10 +28,19 @@ export default function ProductList(props: { item: string }) {
 		},
 		[item]
 	);
+	categorySize = categories.length - 1;
 
 	return (
 		<div className='container'>
-			<p className='breadcrumb'>{categories[0]}</p>
+			<div className='breadcrumb'>
+				{categories.map((category, index) => (
+					<p className='breadcrumb__text' key={index}>
+						{category}
+						{categorySize !== index && <span>{'>'}</span>}
+					</p>
+				))}
+			</div>
+
 			{loading && <p>..Loading</p>}
 
 			<div className='products-list'>
