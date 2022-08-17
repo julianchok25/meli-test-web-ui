@@ -1,0 +1,93 @@
+@import '../../assets/scss/main.scss';
+
+.detail-container {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	font-family: 'Roboto';
+	font-weight: 400;
+
+	.product-detail {
+		background-color: $white-one;
+		border-radius: 4px 4px 0 0;
+		padding: 20px;
+
+		.header {
+			display: flex;
+			justify-content: space-between;
+
+			&__image {
+				width: 360px;
+				height: 450px;
+				margin: 0 auto;
+			}
+
+			.title-price {
+				width: 50%;
+
+				&__state-sold {
+					font-size: 1.4rem;
+					color: $brown-grey-two;
+					margin-bottom: 12px;
+				}
+
+				&__title {
+					font-size: 1.8rem;
+					color: $brown-grey-two;
+					color: $black;
+					margin-bottom: 18px;
+				}
+
+				&__price {
+					font-size: 3rem;
+					font-weight: 300;
+					font-family: Open Sans;
+				}
+
+				&__button {
+					width: 100%;
+					height: 48px;
+					line-height: 48px;
+					background-color: $medium-blue;
+					color: $white-one;
+					font-size: 1.6rem;
+					font-weight: 600;
+					border: none;
+					border-radius: 6px;
+					cursor: pointer;
+					margin: 24px 0 0;
+				}
+			}
+		}
+
+		.footer {
+			width: 100%;
+
+			&__title {
+				font-size: 2rem;
+				font-weight: 300;
+				font-family: Open Sans;
+				margin-bottom: 16px;
+			}
+
+			&__description {
+				width: 80%;
+				color: $brown-grey-two;
+				font-size: 1.4rem;
+				line-height: 1.1;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+	.detail-container {
+		max-width: 640px;
+	}
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+	.detail-container {
+		max-width: 1200px;
+	}
+}
