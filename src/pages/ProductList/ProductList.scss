@@ -6,23 +6,6 @@
 	font-family: 'Roboto';
 	font-weight: 400;
 
-	.breadcrumb {
-		display: flex;
-
-		padding: 16px 0;
-
-		&__text {
-			font-size: 1.4rem;
-			color: $black;
-
-			span {
-				display: inline-block;
-				width: 24px;
-				text-align: center;
-			}
-		}
-	}
-
 	.products-list {
 		background-color: $white-one;
 		border-radius: 4px 4px 0 0;

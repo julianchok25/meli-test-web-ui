@@ -12,10 +12,15 @@ import './App.scss';
 
 function App() {
 	const [text, setText] = useState<string | any>('');
+	const [categories, setCategories] = useState<Array<string>>([]);
+
 	const [params] = useSearchParams();
 	const location = useLocation();
 
 	const onSearch = (search: string) => setText(search);
+	const onCategories = (categories: Array<string>) => {
+		setCategories(categories);
+	};
 
 	if (!text && location.pathname === '/items') {
 		setText(params.get('search'));
@@ -27,11 +32,18 @@ function App() {
 			<Routes>
 				<Route
 					path='/items'
-					element={<ProductList item={text} />}
+					element={
+						<ProductList
+							item={text}
+							onCategories={onCategories}
+						/>
+					}
 				></Route>
 				<Route
 					path='/items/:id'
-					element={<ProductDetail />}
+					element={
+						<ProductDetail itemCategories={categories} />
+					}
 				></Route>
 			</Routes>
 		</div>

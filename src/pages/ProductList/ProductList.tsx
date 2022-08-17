@@ -2,15 +2,14 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getProductsByQueryParam } from '../../services/product.service';
 import { ItemModel } from '../../models/product.model';
-import './ProductList.scss';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+import './ProductList.scss';
 
-export default function ProductList(props: { item: string }) {
-	const { item } = props;
-	let categorySize = 0;
+export default function ProductList(props: any) {
+	const { item, onCategories } = props;
 
 	const [params, setParams] = useSearchParams();
-
 	const [items, setItems] = useState<Array<ItemModel>>([]);
 	const [categories, setCategories] = useState<Array<string>>([]);
 	const [loading, setLoading] = useState(false);
@@ -22,24 +21,18 @@ export default function ProductList(props: { item: string }) {
 
 			getProductsByQueryParam(item).then((products) => {
 				setCategories(products.categories);
+				onCategories(products.categories);
+
 				setItems(products.items.slice(0, 4));
 				setLoading(false);
 			});
 		},
 		[item]
 	);
-	categorySize = categories.length - 1;
 
 	return (
 		<div className='container'>
-			<div className='breadcrumb'>
-				{categories.map((category, index) => (
-					<p className='breadcrumb__text' key={index}>
-						{category}
-						{categorySize !== index && <span>{'>'}</span>}
-					</p>
-				))}
-			</div>
+			<Breadcrumb categories={categories} isComplete={true} />
 
 			{loading && <p>..Loading</p>}
 
