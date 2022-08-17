@@ -1,14 +1,25 @@
 import { useState } from 'react';
 import SearchBox from './components/SearchBox/SearchBox';
-import ProductCard from './components/ProductCard/ProductCard';
-import { Route, Routes } from 'react-router-dom';
+import {
+	Route,
+	Routes,
+	useSearchParams,
+	useLocation,
+} from 'react-router-dom';
 import ProductDetail from './components/ProductDetail/ProductDetail';
+import ProductList from './pages/ProductList/ProductList';
 import './App.scss';
 
 function App() {
-	const [text, setText] = useState('');
+	const [text, setText] = useState<string | any>('');
+	const [params] = useSearchParams();
+	const location = useLocation();
 
 	const onSearch = (search: string) => setText(search);
+
+	if (!text && location.pathname === '/items') {
+		setText(params.get('search'));
+	}
 
 	return (
 		<div className='App'>
@@ -16,7 +27,7 @@ function App() {
 			<Routes>
 				<Route
 					path='/items'
-					element={<ProductCard item={text} />}
+					element={<ProductList item={text} />}
 				></Route>
 				<Route
 					path='/items/:id'
