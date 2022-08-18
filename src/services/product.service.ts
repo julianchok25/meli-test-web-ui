@@ -1,29 +1,22 @@
+import exchangeService from './http.service';
 import {
 	ProductsRsModel,
 	ProductRsModel,
 } from '../models/product.model';
+import { API_PATH } from '../utils/servicesPaths';
 
 export async function getProductsByQueryParam(
 	queryParam: string
 ): Promise<ProductsRsModel> {
-	const apiUrl = `http://localhost:3000/api/items?q=${queryParam}`;
+	const apiUrl = `${API_PATH.managerEndpoint}?q=${queryParam}`;
 
-	return await fetch(apiUrl)
-		.then((res) => res.json())
-		.catch((err) => {
-			console.log(err);
-		});
+	return await exchangeService(apiUrl);
 }
 
 export async function getProductById(
 	productId: string | any
 ): Promise<ProductRsModel> {
-	const apiUrl = `http://localhost:3000/api/items/${productId}`;
-	console.log(apiUrl);
+	const apiUrl = `${API_PATH.managerEndpoint}/${productId}`;
 
-	return await fetch(apiUrl)
-		.then((res) => res.json())
-		.catch((err) => {
-			console.log(err);
-		});
+	return await exchangeService(apiUrl);
 }
