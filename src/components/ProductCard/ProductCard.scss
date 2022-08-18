@@ -25,6 +25,15 @@
 			p:nth-child(1) {
 				font-size: 2.4rem;
 				line-height: 1.8;
+
+				.active {
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					background-color: $active-product;
+					border-radius: 50%;
+					margin-left: 16px;
+				}
 			}
 
 			p:nth-child(2) {

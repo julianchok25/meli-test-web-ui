@@ -53,7 +53,9 @@ export default function ProductDetail(props: {
 							{item.title}
 						</h2>
 						<h1 className='title-price__price'>
-							$ {item.price?.amount}
+							{item.price?.amount.toLocaleString(
+								'es-AR'
+							)}
 						</h1>
 						<button className='title-price__button'>
 							Comprar
