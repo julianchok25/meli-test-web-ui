@@ -34,7 +34,7 @@ export default function ProductList(props: any) {
 		<div className='container'>
 			<Breadcrumb categories={categories} isComplete={true} />
 
-			{loading && <p>..Loading</p>}
+			{loading && <div className='spinner'></div>}
 
 			<div className='products-list'>
 				<ProductCard items={items} />

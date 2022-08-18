@@ -36,7 +36,7 @@ export default function ProductDetail(props: {
 				categories={itemCategories}
 				isComplete={false}
 			/>
-			{loading && <p>..Loading</p>}
+			{loading && <div className='spinner'></div>}
 
 			<section className='product-detail'>
 				<article className='header'>
