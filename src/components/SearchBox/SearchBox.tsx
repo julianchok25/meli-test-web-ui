@@ -42,6 +42,7 @@ export default function SearchBox(props: any) {
 							onChange={searcher}
 							name='search'
 							value={search}
+							onFocus={(el) => (el.target.value = '')}
 						/>
 						<button
 							type='submit'

@@ -24,7 +24,13 @@ export default function ProductCard(props: {
 							alt={`picture number ${index}`}
 						/>
 						<div className='price-description'>
-							<p>{`$ ${product.price.amount}`}</p>
+							<p>
+								{`$ ${product.price.amount.toLocaleString(
+									'es-AR'
+								)}`}
+								<span className='active'></span>
+							</p>
+
 							<p>{product.title}</p>
 						</div>
 					</article>
