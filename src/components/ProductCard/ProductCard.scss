@@ -21,24 +21,36 @@
 			padding-right: 24px;
 		}
 
-		.price-description {
-			p:nth-child(1) {
-				font-size: 2.4rem;
-				line-height: 1.8;
+		.price-content {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
 
-				.active {
-					display: inline-block;
-					width: 16px;
-					height: 16px;
-					background-color: $active-product;
-					border-radius: 50%;
-					margin-left: 16px;
+			.price-description {
+				p:nth-child(1) {
+					font-size: 2.4rem;
+					line-height: 1.8;
+
+					.active {
+						display: inline-block;
+						width: 16px;
+						height: 16px;
+						background-color: $active-product;
+						border-radius: 50%;
+						margin-left: 16px;
+					}
+				}
+
+				p:nth-child(2) {
+					width: 80%;
+					font-size: 2rem;
 				}
 			}
 
-			p:nth-child(2) {
-				width: 80%;
-				font-size: 2rem;
+			&__state {
+				width: 150px;
+				text-align: center;
+				padding-top: 36px;
 			}
 		}
 	}
