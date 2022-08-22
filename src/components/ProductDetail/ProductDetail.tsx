@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../../services/product.service';
 import { ItemModel } from '../../models/product.model';
+import { conditionMap } from '../../assets/json/products';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import './ProductDetail.scss';
 
@@ -14,10 +15,7 @@ export default function ProductDetail(props: {
 	const [item, setItem] = useState<ItemModel | any>({});
 	const [loading, setLoading] = useState(false);
 
-	const conditionMap = new Map([
-		['new', 'Nuevo'],
-		['used', 'Usado'],
-	]);
+	const condition = conditionMap;
 
 	useEffect(
 		function () {
@@ -46,7 +44,7 @@ export default function ProductDetail(props: {
 						alt={item.title}
 					/>
 					<div className='title-price'>
-						<p className='title-price__state-sold'>{`${conditionMap.get(
+						<p className='title-price__state-sold'>{`${condition.get(
 							item.condition
 						)} ${item.soldQuantity} vendidos`}</p>
 						<h2 className='title-price__title'>
